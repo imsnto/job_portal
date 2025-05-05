@@ -34,12 +34,13 @@ class UserLoginView(APIView):
 
             user = authenticate(request, username=username, password=password)
             if user:
-                token_key = Token.objects.get_or_create(user=user).key
+                token, created = Token.objects.get_or_create(user=user)
+                token_key = token.key
                 return Response({
                     'token_key': token_key
                 })
             else:
                 return Response({
                     'message': 'Invalid username or password.'
-                })
+                }, status=status.HTTP_401_UNAUTHORIZED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
