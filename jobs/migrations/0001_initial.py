@@ -24,7 +24,7 @@ class Migration(migrations.Migration):
                 ('salary_range', models.CharField(max_length=50)),
                 ('location', models.CharField(max_length=100)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('employer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
     ]
