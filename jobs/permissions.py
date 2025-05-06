@@ -9,6 +9,6 @@ class IsEmployer(permissions.BasePermission):
         try:
             profile = UserProfile.objects.get(user=request.user)
             return request.user.is_authenticated and profile.role == 'employer'
-        except Exception as e:
+        except UserProfile.DoesNotExist as e:
             return False
 
