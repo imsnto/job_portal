@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
-class JobPosting(models.Model):
+class JobPost(models.Model):
     JOB_TYPES = (
         ('full_time', 'Full Time'),
         ('part_time', 'Part Time'),
@@ -16,7 +16,7 @@ class JobPosting(models.Model):
     location = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    employer = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title

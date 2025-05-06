@@ -4,7 +4,7 @@ from rest_framework.routers import DefaultRouter
 from .views import JobPostingViewSet
 
 router = DefaultRouter()
-router.register(r'job-posting', JobPostingViewSet, basename='jobposting')
+router.register(r'', JobPostingViewSet, basename='job-posts')
 urlpatterns = [
     path('', include(router.urls)),
 ]

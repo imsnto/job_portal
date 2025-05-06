@@ -18,9 +18,7 @@ class UserRegistrationView(CreateAPIView):
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
             user = serializer.save()
-            token, created = Token.objects.get_or_create(user=user)
             return Response({
-                'token_key': token.key,
                 'username': user.username,
                 'email': user.email,
                 'role': serializer.validated_data['role']
