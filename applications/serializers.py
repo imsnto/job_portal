@@ -17,5 +17,10 @@ class JobApplicationSerializer(serializers.ModelSerializer):
 
         read_only_fields = ('id', 'applicant', 'job_title', 'applied_at')
 
+    def validate(self, attrs):
+        if self.instance and 'job_post' in attrs:
+            raise serializers.ValidationError({"job_post": "You cannot change the job post once the application is created."})
+        return super().validate(attrs)
+
 
 

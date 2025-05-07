@@ -6,8 +6,9 @@ User = get_user_model()
 
 class JobPostingSerializer(serializers.ModelSerializer):
     employer = serializers.PrimaryKeyRelatedField(read_only=True, default=serializers.CurrentUserDefault())
+    employer_name = serializers.ReadOnlyField(source='employer.username')
 
     class Meta:
         model = JobPost
-        fields = ['title', 'type', 'description', 'salary_range', 'location', 'employer', 'created_at']
-        read_only_fields = ('user', 'created_at')
+        fields = ['id', 'title', 'type', 'description', 'salary_range', 'location', 'employer', 'employer_name', 'created_at']
+        read_only_fields = ['id', 'employer', 'employer_name', 'created_at']
