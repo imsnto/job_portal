@@ -73,7 +73,7 @@ python manage.py runserver
     - `POST /jobs/` : Create a job. (Employer only)
     - `GET/PUT/PATCH/DELETE /jobs/{id}/` : Retrieve, update, delete a specific job post. (employer only)
 - **Job Applications**
-    - `GET /applications/`: Get all the application. (Job seekers get only the application s/he applied and Employer gets the applications those are applied to his/her post) 
+    - `GET /applications/`: Get all the applications. (Job seekers get only the applications they submitted, and employers get the applications submitted to their posts) 
     - `POST /applications/` : Submit an application. (Job Seekers only)
     - `GET/PUT/PATCH/DELETE /applications/{id}/` : Retrieve, update, delete a specific job application. (Job Seekers only (Must be the owner of the object))
 
